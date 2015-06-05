@@ -11,7 +11,7 @@ $Cluster = "Mini-Cluster"
 $VMName = "PS-vcsa-embedded"
 $VMNetwork = "VM Network"
 
-$VMHost = Get-Cluster $Cluster | Get-VMHost | Sort MemoryGB | Select -first 1
+$VMHost = Get-Cluster -Name $Cluster | Get-VMHost | Sort MemoryGB | Select -first 1
 $Datastore = $VMHost | Get-datastore | Sort FreeSpaceGB -Descending | Select -first 1
 $Network = Get-VirtualPortGroup -Name $VMNetwork -VMHost $vmhost
 
